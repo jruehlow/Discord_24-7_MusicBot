@@ -8,7 +8,7 @@ This is a Music Bot for Discord (https://discordapp.com/) playing 24/7.
 
 ## Getting started:
 
-#### 1. Download jar [ ![download][] ][download]
+#### 1. Download the Bot [ ![download][] ][download]
 #### 2. Make sure you have installed Java 8 on your Server
 #### 3. Go to the Directory where you downloaded the jar file
 #### 4. Execute `java -jar Discord_24-7_MusicBot-1.0.jar`
