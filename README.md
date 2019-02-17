@@ -1,6 +1,6 @@
 [download]: https://img.shields.io/badge/Download-1.0-blue.svg
 [license]: https://img.shields.io/badge/license-Mozilla%20Public%20License%20Version%202.0-lightgrey.svg
-[ ![download][] ](https://kaufisch.github.io/download/Discord_24-7_MusicBot-1.1.jar)
+[ ![download][] ](https://github.com/Kaufisch/Discord_24-7_MusicBot/releases)
 [ ![license][] ](https://github.com/Kaufisch/Discord_24-7_MusicBot/blob/master/LICENSE)
 
 # Discord 24/7 MusicBot
