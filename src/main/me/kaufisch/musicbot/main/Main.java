@@ -36,7 +36,7 @@ public class Main {
                 .addEventListener(new ChannelListener())
                 .addEventListener(new onResume())
                 .setAutoReconnect(true)
-                .buildBlocking();
+                .build();
         guild = jda.getGuildById(Const.GUILD_ID);
         Music music = new Music();
         music.musicBot();
