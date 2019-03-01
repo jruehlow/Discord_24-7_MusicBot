@@ -1,4 +1,4 @@
-[download]: https://img.shields.io/badge/Download-1.0-blue.svg
+[download]: https://img.shields.io/badge/Download-1.2-blue.svg
 [license]: https://img.shields.io/badge/license-Mozilla%20Public%20License%20Version%202.0-lightgrey.svg
 [ ![download][] ](https://github.com/Kaufisch/Discord_24-7_MusicBot/releases)
 [ ![license][] ](https://github.com/Kaufisch/Discord_24-7_MusicBot/blob/master/LICENSE)
@@ -11,12 +11,12 @@ This is a Music Bot for Discord (https://discordapp.com/) playing 24/7.
 #### 1. Download the Bot
 #### 2. Make sure you have installed Java 8 on your Server
 #### 3. Go to the Directory where you downloaded the jar file
-#### 4. Execute `java -jar Discord_24-7_MusicBot-1.1.jar`
+#### 4. Execute `java -jar Discord_24-7_MusicBot-1.2.jar`
 #### 5. Go to the newly generated Directory called MusicBot
 #### 6. Create the Voice Channel where the Bot should join and a text channel for the Vote Skip System
 #### 7. Create a bot at https://discordapp.com/developers/applications/ and copy the Token
 #### 8. Replace the Values in config.properties and fill playlist.txt up with songs
-#### 9. Execute `java -jar Discord_24-7_MusicBot-1.1.jar` and the Bot will join your Music Channel
+#### 9. Execute `java -jar Discord_24-7_MusicBot-1.2.jar` and the Bot will join your Music Channel
 
 ## Commands:
 
