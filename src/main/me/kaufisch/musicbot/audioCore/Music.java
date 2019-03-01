@@ -13,6 +13,10 @@ import me.kaufisch.musicbot.main.Main;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.VoiceChannel;
 import net.dv8tion.jda.core.managers.AudioManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * @author Kaufisch
  */
@@ -36,6 +40,13 @@ public class Music {
         manager.openAudioConnection(channel);
         player.setVolume(50);
         trackScheduler.nextTrack();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Music.skip();
+            }
+        }, 0, 1000 * 60 * 10);
     }
 
     public void loadAndPlay(final String trackUrl) {

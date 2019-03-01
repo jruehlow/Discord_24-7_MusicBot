@@ -1,5 +1,6 @@
 package me.kaufisch.musicbot.events;
 
+import me.kaufisch.musicbot.audioCore.Music;
 import me.kaufisch.musicbot.utils.Const;
 import me.kaufisch.musicbot.main.Main;
 import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
