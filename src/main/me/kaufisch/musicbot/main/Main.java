@@ -37,8 +37,5 @@ public class Main {
                 .addEventListener(new onResume())
                 .setAutoReconnect(true)
                 .build();
-        guild = jda.getGuildById(Const.GUILD_ID);
-        Music music = new Music();
-        music.musicBot();
     }
 }

@@ -9,8 +9,8 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import me.kaufisch.musicbot.utils.Const;
-import me.kaufisch.musicbot.main.Main;
 import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.VoiceChannel;
 import net.dv8tion.jda.core.managers.AudioManager;
 
@@ -26,16 +26,14 @@ public class Music {
     public static TrackScheduler trackScheduler;
     public static AudioPlayer player;
 
-    public static JDA jda;
-
-    public static void musicBot() {
+    public static void musicBot(JDA jda, Guild guild) {
         playerManager = new DefaultAudioPlayerManager();
         AudioSourceManagers.registerRemoteSources(playerManager);
         player = playerManager.createPlayer();
         trackScheduler = new TrackScheduler(player);
         player.addListener(trackScheduler);
-        VoiceChannel channel = Main.guild.getVoiceChannelById(Const.MusicChannel);
-        AudioManager manager = Main.guild.getAudioManager();
+        VoiceChannel channel = jda.getVoiceChannelById(Const.MusicChannel);
+        AudioManager manager = guild.getAudioManager();
         manager.setSendingHandler(new AudioPlayerSendHandler(player));
         manager.openAudioConnection(channel);
         player.setVolume(50);
