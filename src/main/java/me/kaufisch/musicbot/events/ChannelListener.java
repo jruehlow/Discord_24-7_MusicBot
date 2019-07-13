@@ -1,6 +1,5 @@
 package me.kaufisch.musicbot.events;
 
-import me.kaufisch.musicbot.audioCore.Music;
 import me.kaufisch.musicbot.utils.Const;
 import me.kaufisch.musicbot.main.Main;
 import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
@@ -20,19 +19,16 @@ public class ChannelListener extends ListenerAdapter {
                     Main.userInChannel.add(event.getMember());
                 }
             }
-        } catch (NullPointerException exception) {
+        } catch (NullPointerException ignored) {
         }
     }
 
     @Override
-    public void onGuildVoiceLeave(GuildVoiceLeaveEvent event) {
-        try {
-            if (event.getChannelLeft().getId().equals(Const.MusicChannel)) {
-                if (!event.getMember().getUser().isBot()) {
-                    Main.userInChannel.remove(event.getMember());
-                }
+    public void onGuildVoiceLeave(GuildVoiceLeaveEvent event) throws NullPointerException {
+        if (event.getChannelLeft().getId().equals(Const.MusicChannel)) {
+            if (!event.getMember().getUser().isBot()) {
+                Main.userInChannel.remove(event.getMember());
             }
-        } catch (NullPointerException exception) {
         }
     }
 
@@ -49,7 +45,7 @@ public class ChannelListener extends ListenerAdapter {
                     Main.userInChannel.add(event.getMember());
                 }
             }
-        } catch (NullPointerException exception) {
+        } catch (NullPointerException ignored) {
         }
     }
 }

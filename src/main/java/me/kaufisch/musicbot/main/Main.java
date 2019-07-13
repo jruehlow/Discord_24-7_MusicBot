@@ -1,6 +1,5 @@
 package me.kaufisch.musicbot.main;
 
-import me.kaufisch.musicbot.audioCore.Music;
 import me.kaufisch.musicbot.events.ChannelListener;
 import me.kaufisch.musicbot.events.MessageListener;
 import me.kaufisch.musicbot.events.onResume;

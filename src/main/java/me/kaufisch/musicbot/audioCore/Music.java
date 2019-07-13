@@ -22,9 +22,9 @@ import java.util.TimerTask;
  */
 public class Music {
 
-    public static AudioPlayerManager playerManager;
-    public static TrackScheduler trackScheduler;
-    public static AudioPlayer player;
+    private static AudioPlayerManager playerManager;
+    private static TrackScheduler trackScheduler;
+    private static AudioPlayer player;
 
     public static void musicBot(JDA jda, Guild guild) {
         playerManager = new DefaultAudioPlayerManager();
@@ -47,7 +47,7 @@ public class Music {
         }, 0, 1000 * 60 * 10);
     }
 
-    public void loadAndPlay(final String trackUrl) {
+    void loadAndPlay(final String trackUrl) {
         playerManager.loadItem(trackUrl, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack track) {

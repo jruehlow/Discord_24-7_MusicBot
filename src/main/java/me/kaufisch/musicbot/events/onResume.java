@@ -24,7 +24,6 @@ public class onResume extends ListenerAdapter {
 
     @Override
     public void onReady(ReadyEvent event) {
-        Music music = new Music();
-        music.musicBot(event.getJDA(), event.getJDA().getGuildById(Const.GUILD_ID));
+        Music.musicBot(event.getJDA(), event.getJDA().getGuildById(Const.GUILD_ID));
     }
 }

@@ -17,18 +17,18 @@ public class TrackScheduler extends AudioEventAdapter {
     private final AudioPlayer player;
     private final BlockingQueue<AudioTrack> queue;
 
-    public TrackScheduler(AudioPlayer player) {
+    TrackScheduler(AudioPlayer player) {
         this.player = player;
         this.queue = new LinkedBlockingQueue<>();
     }
 
-    public void queue(AudioTrack track) {
+    void queue(AudioTrack track) {
         if (!player.startTrack(track, true)) {
             queue.offer(track);
         }
     }
 
-    public void nextTrack() {
+    void nextTrack() {
         FileManager data = new FileManager();
         data.randomSong();
         String identifier = data.currentSong.get(1);
@@ -40,7 +40,7 @@ public class TrackScheduler extends AudioEventAdapter {
         player.startTrack(queue.poll(), true);
     }
 
-    public void nextTrack2() {
+    void nextTrack2() {
         FileManager data = new FileManager();
         data.randomSong();
         String identifier = data.currentSong.get(1);
