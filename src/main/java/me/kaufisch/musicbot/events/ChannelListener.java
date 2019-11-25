@@ -2,17 +2,19 @@ package me.kaufisch.musicbot.events;
 
 import me.kaufisch.musicbot.utils.Const;
 import me.kaufisch.musicbot.main.Main;
-import net.dv8tion.jda.core.events.guild.voice.GuildVoiceJoinEvent;
-import net.dv8tion.jda.core.events.guild.voice.GuildVoiceLeaveEvent;
-import net.dv8tion.jda.core.events.guild.voice.GuildVoiceMoveEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
+import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
+import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * @author Kaufisch
  */
 public class ChannelListener extends ListenerAdapter {
 
     @Override
-    public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
+    public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
         try {
             if (event.getChannelJoined().getId().equals(Const.MusicChannel)) {
                 if (!event.getMember().getUser().isBot()) {
@@ -33,7 +35,7 @@ public class ChannelListener extends ListenerAdapter {
     }
 
     @Override
-    public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
+    public void onGuildVoiceMove(@NotNull GuildVoiceMoveEvent event) {
         try {
             if (event.getChannelLeft().getId().equals(Const.MusicChannel)) {
                 if (!event.getMember().getUser().isBot()) {

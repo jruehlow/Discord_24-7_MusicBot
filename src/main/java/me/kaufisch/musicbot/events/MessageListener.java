@@ -3,8 +3,10 @@ package me.kaufisch.musicbot.events;
 import me.kaufisch.musicbot.audioCore.Music;
 import me.kaufisch.musicbot.utils.Const;
 import me.kaufisch.musicbot.main.Main;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import java.util.Objects;
+
 /**
  * @author Kaufisch
  */
@@ -50,13 +52,13 @@ public class MessageListener extends ListenerAdapter {
 
                         }
                     } else {
-                        event.getChannel().sendMessage(event.getMember().getAsMention() + " " + Const.VoteSkipMessage).queue();
+                        event.getChannel().sendMessage(Objects.requireNonNull(event.getMember()).getAsMention() + " " + Const.VoteSkipMessage).queue();
                     }
                 } else {
                     event.getMessage().delete().queue();
                 }
             } else {
-                if (!event.getMember().getUser().isBot()) {
+                if (!Objects.requireNonNull(event.getMember()).getUser().isBot()) {
                     event.getMessage().delete().queue();
                 }
             }
