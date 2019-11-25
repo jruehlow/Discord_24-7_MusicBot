@@ -9,10 +9,10 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import me.kaufisch.musicbot.utils.Const;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.VoiceChannel;
-import net.dv8tion.jda.core.managers.AudioManager;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.VoiceChannel;
+import net.dv8tion.jda.api.managers.AudioManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -73,7 +73,7 @@ public class Music {
 
     public static void skip() {
         trackScheduler = new TrackScheduler(player);
-        trackScheduler.nextTrack2();
+        trackScheduler.skipTrack();
 
     }
 

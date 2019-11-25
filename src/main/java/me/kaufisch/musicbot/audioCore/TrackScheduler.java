@@ -6,7 +6,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import me.kaufisch.musicbot.utils.FileManager;
 import me.kaufisch.musicbot.main.Main;
-import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.api.entities.Activity;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -34,22 +34,22 @@ public class TrackScheduler extends AudioEventAdapter {
         String identifier = data.currentSong.get(1);
         Music music = new Music();
         music.loadAndPlay(identifier);
-        Main.jda.getPresence().setGame(Game.playing(data.currentSong.get(0)));
+        Main.jda.getPresence().setActivity(Activity.playing(data.currentSong.get(0)));
         data.currentSong.clear();
         Main.userAlreadyDid.clear();
-        player.startTrack(queue.poll(), true);
+        player.playTrack(queue.poll());
     }
 
-    void nextTrack2() {
+    void skipTrack() {
         FileManager data = new FileManager();
         data.randomSong();
         String identifier = data.currentSong.get(1);
         Music music = new Music();
         music.loadAndPlay(identifier);
-        Main.jda.getPresence().setGame(Game.playing(data.currentSong.get(0)));
+        Main.jda.getPresence().setActivity(Activity.playing(data.currentSong.get(0)));
         data.currentSong.clear();
         player.stopTrack();
-        player.startTrack(queue.poll(), true);
+        player.playTrack(queue.poll());
     }
 
     @Override

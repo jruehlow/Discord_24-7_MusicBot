@@ -1,6 +1,7 @@
 package me.kaufisch.musicbot.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -10,14 +11,14 @@ import java.util.Random;
  * @author Kaufisch
  */
 public class FileManager {
-    public HashMap<String, String> playlist = new HashMap<String, String>();
-    public ArrayList<String> currentSong = new ArrayList<String>();
+    private HashMap<String, String> playlist = new HashMap<>();
+    public ArrayList<String> currentSong = new ArrayList<>();
 
     public void randomSong() {
         BufferedReader reader;
         try {
             reader = new BufferedReader(
-                    new InputStreamReader(new FileInputStream("MusicBot/playlist.txt"), "UTF8"));
+                    new InputStreamReader(new FileInputStream("MusicBot/playlist.txt"), StandardCharsets.UTF_8));
             String line = reader.readLine();
             while (line != null) {
                 playlist.put(line.split(";")[1], line.split(";")[0]);
@@ -36,21 +37,17 @@ public class FileManager {
     public void Config() throws FileNotFoundException, UnsupportedEncodingException {
         //Check If MusicBot Directory exists
         File dir = new File("MusicBot");
+        //Create MusicBot Directory
         if (!(dir.exists() && dir.isDirectory())) {
-            //Create MusicBot Directory
             dir.mkdir();
-        } else {
-            //Directory exists
         }
 
         //Check If playlist.txt exists
         File playlist = new File("MusicBot/playlist.txt");
         if (!(playlist.exists() && !playlist.isDirectory())) {
-            PrintWriter writer = new PrintWriter("MusicBot/playlist.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("MusicBot/playlist.txt", "UTF8");
             writer.println("Kaufisch - Fill your playlist with songs;https://youtu.be/ctGOaiHP4dE");
             writer.close();
-        } else {
-            //playlist.txt exists
         }
 
         //Check If config.properties exists
@@ -117,7 +114,6 @@ public class FileManager {
             Const.TOKEN = prop.getProperty("TOKEN");
             Const.GUILD_ID = prop.getProperty("GUILD_ID");
             Const.VoteSkipMessage = prop.getProperty("VoteSkipMessage");
-
 
         }
     }
