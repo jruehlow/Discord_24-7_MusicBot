@@ -3,7 +3,7 @@ plugins {
     id 'idea'
 }
 
-version '1.4'
+version '1.4.1'
 
 jar {
     from {
@@ -30,7 +30,7 @@ repositories {
 
 dependencies {
     // JDA & LavaPlayer
-    compile 'net.dv8tion:JDA:4.0.0_63', 'com.sedmelluq:lavaplayer:1.3.27'
+    compile 'net.dv8tion:JDA:4.0.0_70', 'com.sedmelluq:lavaplayer:1.3.32'
     // SLF4J
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-beta4'
     compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-beta4'
